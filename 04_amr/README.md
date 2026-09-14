@@ -1,33 +1,33 @@
-# 04 - AMR in ecological context
+# 04 — Public wild-bird AMR case study
 
-## Live session
+## Published case study
 
-Use the project figure in `assets/` and a precomputed isolate-level AMR table. The key task is interpretation, not memorising resistance genes.
+Mourkas E et al. (2024), *Current Biology*:
 
-The study-level pattern provides a useful ecological contrast:
+**Proximity to humans is associated with antimicrobial-resistant enteric pathogens in wild bird microbiomes**
 
-- conventional chicken: 25.0% with selected resistance determinants;
-- organic chicken: 15.1%;
-- ruminants: 40.0% (small n=15 group);
-- wild birds near farms: 18.4%;
-- non-agricultural wild birds: 10.9%.
+DOI: `10.1016/j.cub.2024.07.059`
 
-`tetO` was enriched in near-farm wild birds relative to non-agricultural birds. `gyrA_T86I` was observed in livestock and near-farm wild birds but not in the non-agricultural wild-bird group in this dataset.
+Public assemblies: `https://doi.org/10.6084/m9.figshare.23631495`
 
-## Pre-workshop output
+The study analysed 700 *C. jejuni* genomes from 30 bird species in eight countries. Proximity to human habitation was associated with increased lineage diversity and AMR; urban-associated wild birds carried up to roughly three-fold more Campylobacter genotypes and AMR genes in the final published analysis.
 
-Populate `data/precomputed/amr_calls.tsv` with the exact calls for A-D from the same pipeline you use in the project.
+## Teaching shift
 
-Suggested fields:
+Do **not** turn this into a list of resistance genes. Instead ask what genomic/ecological pattern would distinguish:
 
-```text
-mystery_id,isolate_id,determinant,drug_class,predicted_phenotype,method,notes
-```
+1. clonal movement of a resistant lineage;
+2. horizontal movement of an AMR determinant;
+3. repeated independent selection/exposure.
 
-## Discussion prompts
+## Questions
 
-- Does the determinant sit in a lineage already common in livestock?
-- Is there evidence for the same determinant in multiple genomic backgrounds?
-- Is the resistance gene chromosomal or mobile?
-- Does the observation support spillover, gene-pool sharing, selection, or merely exposure?
-- What would long reads add?
+- Is the same determinant present in multiple unrelated lineages?
+- Is it concentrated in generalist/livestock-associated lineages?
+- Does ecological proximity predict lineage diversity, AMR, or both?
+- What does long-read sequencing add?
+- What environmental samples would most directly test the hypothesis?
+
+## Optional participant extension
+
+Download a small subset of public assemblies from Figshare after the workshop and repeat the PubMLST/Genome Comparator workflow on wild-bird genomes spanning contrasting ecological contexts.

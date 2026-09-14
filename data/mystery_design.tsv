@@ -1,0 +1,5 @@
+mystery_id	selection_rule	preferred_lineage	teaching_point
+A	true_source=wild bird; test set; generalist_index=1	any specialist wild-bird ST	Strong host structure can make source attribution relatively easy
+B	true_source=chicken; test set; generalist_index=1	prefer CC257/CC353/CC354/CC443/CC464	A clear poultry specialist contrast
+C	true_source=cattle or sheep; test set; lowest available generalist_index	prefer CC42/CC61 if available	Ruminant gene pools overlap but are still ecologically informative
+D	test set; generalist_index>=4; prefer published prediction != true source	prefer CC21 or CC45	Generalists expose the biological limit of source attribution

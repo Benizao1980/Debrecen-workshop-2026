@@ -1,26 +1,41 @@
-# 01 - PubMLST and MLST
+# 01 — PubMLST and seven-locus MLST
 
-## Core message
+## Teaching aim
 
-MLST converts sequence variation at a small set of housekeeping loci into a portable allelic profile and sequence type (ST). A clonal complex groups related STs. These are names for population structure, not proof of direct transmission.
+Introduce PubMLST as both:
 
-## Live workflow
+1. a curated nomenclature system; and
+2. a genome/isolate collection with provenance metadata.
 
-1. Open the *C. jejuni/C. coli* PubMLST sequence-definition database.
-2. Choose **Single sequence**.
-3. Upload one mystery genome in FASTA format.
-4. Select the *C. jejuni/C. coli* MLST scheme.
-5. Submit and record the allele profile, ST and CC.
-6. Repeat with the remaining genomes.
+The live exercise uses a **whole-genome FASTA** to obtain the seven-locus *C. jejuni/C. coli* MLST profile, ST and clonal complex.
 
-BIGSdb explicitly supports whole-genome, multi-contig uploads for sequence query; when all loci in a selected scheme match, scheme fields such as ST can be returned in one operation.
+## Conceptual ladder
 
-Official documentation:
-https://bigsdb.readthedocs.io/en/latest/data_query/0010_determine_allele_identity.html
+```text
+sequence at locus → allele number
+7 allele numbers → allelic profile
+allelic profile → sequence type (ST)
+related STs → clonal complex (CC)
+whole genome → cg/wgMLST and higher-resolution comparison
+```
 
-## Teaching prompts
+## Demonstration
 
-- Why do we assign allele numbers instead of comparing raw sequences every time?
-- What information is lost when a ~1.6 Mb genome is represented by seven allele numbers?
-- Why can two isolates in CC45 still be epidemiologically unrelated?
-- What might cause a locus not to return an exact allele match?
+Use mystery A only for the instructor demo. Let participants type B–D themselves.
+
+Record:
+
+- species;
+- seven alleles;
+- ST;
+- CC;
+- any incomplete/novel calls.
+
+## Key question
+
+> How much ecology can seven loci encode, and what information are we throwing away from the rest of the genome?
+
+## Useful resources
+
+- Campylobacter PubMLST: `https://pubmlst.org/organisms/campylobacter-jejunicoli`
+- BIGSdb sequence-query documentation: `https://bigsdb.readthedocs.io/en/latest/data_query/0010_determine_allele_identity.html`

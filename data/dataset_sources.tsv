@@ -1,0 +1,5 @@
+dataset	role	publication	stable_data_source	note
+Arning_2021	core source-attribution teaching set	10.1371/journal.pgen.1009436	https://doi.org/10.1371/journal.pgen.1009436.s001	Pinned 5799-genome published snapshot; use instead of assuming current PubMLST project 102 membership is unchanged
+PubMLST_project_102	live exploration	10.1371/journal.pgen.1009436	https://pubmlst.org/bigsdb?db=pubmlst_campylobacter_isolates&page=query&project_list=102&submit=1	Live project can grow/change; use for exploration, not as immutable sample manifest
+aiSource	optional model rerun	10.1371/journal.pgen.1009436	https://github.com/narning1992/aiSource	Published cgMLST XGBoost implementation/model and example data
+Mourkas_2024	wild-bird AMR application	10.1016/j.cub.2024.07.059	https://doi.org/10.6084/m9.figshare.23631495	Public contiguous assemblies for the published 700-genome wild-bird study

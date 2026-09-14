@@ -1,89 +1,128 @@
-# Instructor run sheet - 120 minutes
+# Instructor run sheet — 120 minutes
 
 ## Before people arrive
 
-- Put the GitHub/ZIP link on the first slide and in the chat/handout.
-- Test PubMLST from the workshop Wi-Fi.
-- Have A-D FASTAs downloaded locally on every machine if possible.
-- Have all precomputed outputs open in separate browser tabs.
-- Do not rely on a queued web analysis finishing inside the scheduled slot.
+1. Run `python scripts/prepare_public_dataset.py --download-fastas` on a reliable connection.
+2. Check A–D in PubMLST manually once.
+3. Run Genome Comparator once and save a screenshot/export in `data/precomputed/`.
+4. Keep `answers/mystery_key.tsv` closed.
+5. Put the repository/ZIP link and a QR code (optional) on the first slide.
+6. Do not depend on installing aiSource/SourceRunner live.
 
-## 0-10 min - Frame the problem
+---
 
-**Slides 1-4.**
+## 0–10 min — Frame the inference problem
 
 Opening question:
 
-> “We cultured *C. jejuni* from a wild bird. Does that make it a wild-bird strain?”
+> “We have a Campylobacter genome. How far can sequence alone take us toward saying where it came from?”
 
-Ask for a show of hands: who thinks genome sequence can tell you where it came from?
+Explain that A–D are **public source-labelled isolates**, but source labels are hidden.
 
-Give the four mystery genomes. Explain that all were cultured from wild birds, but hide bird species and sampling context.
+Get the room to classify the six statements in Exercise 0 as direct/probabilistic/not-by-genome-alone.
 
-## 10-25 min - PubMLST in one conceptual picture
+Key message: relatedness, source association and transmission are different claims.
 
-**Slides 5-7.**
+---
 
-Keep jargon to a minimum:
+## 10–25 min — PubMLST in one picture
 
-DNA sequence -> allele number -> allelic profile -> ST -> CC -> cg/wgMLST comparison.
+Keep the conceptual ladder simple:
 
-Show the distinction between the **typing/definition database** and the **isolate/genome collection**. The important idea is that PubMLST links a nomenclature system to genomes plus provenance metadata.
+**sequence → allele → 7-locus profile → ST → CC → cg/wgMLST**
+
+Show the difference between:
+
+- definitions/nomenclature; and
+- isolate/genome + metadata collection.
 
 Live-demo mystery A only.
 
-## 25-45 min - Exercise 1
+---
 
-Participants type A-D.
+## 25–45 min — Exercise 1
 
-Walk the room. If someone is stuck, pair them with someone who has a result rather than stopping the entire room.
+Participants type A–D.
 
-At ~40 min reveal the expected ST/CC table but not the original host/site identities.
+At ~40 min reveal only ST/CC (copy from `data/generated/pubmlst_typing.tsv`), not source labels.
 
-## 45-70 min - Exercise 2
+Ask: “Which ST looks most likely to be source-specific?”
 
-**Slides 8-11.**
+---
 
-First let them query matching STs and inspect metadata. Then run Genome Comparator.
+## 45–70 min — Exercise 2
+
+Participants query their STs/CCs in the isolate database and label each lineage “specialist-looking / generalist-looking / unclear”.
+
+Then run Genome Comparator on A–D + the public reference panel.
 
 Key sentence:
 
-> “MLST gives the lineage a name; the larger gene-by-gene comparison asks how much genomic resolution is hidden behind that name.”
+> “MLST gives the lineage a portable name. Genome-wide comparison tells us how much diversity that name is hiding.”
 
-If Genome Comparator is slow, immediately switch to precomputed output.
+If the server is slow, switch immediately to the precomputed output.
 
-End this block by showing the study population tree and ask them where they would place each mystery isolate.
+---
 
-## 70-90 min - Exercise 3: source attribution
+## 70–95 min — Exercise 3: source attribution
 
-**Slides 12-14.**
+Force a prediction before the reveal.
 
-Before revealing the ML result, force a prediction. Participants should give a source and a confidence level.
+Ask participants to give:
 
-Then reveal the precomputed SourceRunner-ML probabilities.
+1. source;
+2. confidence;
+3. one piece of supporting evidence;
+4. one thing that could make them wrong.
 
-Spend most discussion time on B/ST45. The “failure” to confidently assign a generalist is a biological result, not merely a bad algorithm.
+Then open `data/generated/source_attribution_reveal.tsv`.
 
-## 90-110 min - Exercise 4: AMR
+Spend the most time on mystery D.
 
-**Slides 15-16.**
+Useful published numbers:
 
-Reveal exact A-D AMR calls after they have made a prediction from the ecological context.
+- dataset: chicken 4,147; cattle 716; sheep 584; wild bird 212; environment 140;
+- best cgMLST/XGBoost result ~85%;
+- wild-bird test accuracy reported ~84% despite smaller n;
+- increasing generalist index reduced accuracy;
+- cattle/sheep were the most frequent confusion.
 
-Then zoom out to the project-level result: near-farm wild birds carried more selected resistance determinants than non-agricultural birds; `tetO` and `gyrA_T86I` provide concrete examples.
+Make the conceptual point that **a confidently generalist lineage may be correctly hard to assign**.
 
-Ask: “What experiment or data would distinguish resistant lineage movement from mobile-gene movement?”
+---
 
-Expected answer includes long reads/plasmid context plus denser temporal/ecological sampling.
+## 95–112 min — Exercise 4: wild-bird AMR
 
-## 110-120 min - Reveal and synthesis
+Transition:
 
-**Slides 17-18.**
+> “So far source labels were clean experimental classes. Wild-bird ecology is messier — and more interesting.”
 
-Reveal host species and sites.
+Introduce the published 2024 Current Biology dataset:
 
-Get one participant/group to give a 60-second interpretation of one isolate using the synthesis template in `workshop.md`.
+- 700 C. jejuni genomes;
+- 30 bird species;
+- eight countries;
+- public assemblies on Figshare;
+- proximity to human habitation associated with increased lineage diversity and AMR.
 
-Finish on uncertainty rather than a list of tools.
+Do the strain-movement vs gene-movement vs independent-selection challenge.
 
-> “Genomes make our hypotheses much sharper. They do not remove the need for ecology, metadata or good sampling.”
+Expected strong suggestions:
+
+- long-read/plasmid context;
+- dense local livestock + bird + water/sewage sampling;
+- temporal sampling;
+- antimicrobial-use/exposure data;
+- movement ecology.
+
+---
+
+## 112–120 min — Final reveal and synthesis
+
+Reveal exact PubMLST IDs and metadata from `answers/mystery_key.tsv`.
+
+Ask one group for a 60-second interpretation using the template in `workshop.md`.
+
+Finish with:
+
+> “Genomes make hypotheses much sharper. They do not remove the need for ecology, metadata and sampling design.”

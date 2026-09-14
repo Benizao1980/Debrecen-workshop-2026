@@ -1,41 +1,41 @@
 # Participant workbook
 
-## From a wild-bird genome to an epidemiological story
+# From a Campylobacter genome to an ecological story
 
-You have four *Campylobacter jejuni* genome assemblies recovered from wild birds. Your job is not simply to type them. Your job is to decide what the genomes can - and cannot - tell you about ecology, transmission and antimicrobial resistance.
+You have four public *Campylobacter* genomes selected from a published source-attribution dataset. Their source labels are hidden.
 
-**Do not open the `answers/` directory until the final discussion.**
+Your task is not simply to type them. Your task is to decide what the genomes can — and cannot — tell you about host association, source, transmission and antimicrobial resistance.
+
+**Do not open `answers/` or `data/generated/source_attribution_reveal.tsv` until instructed.**
 
 ---
 
 ## 0. Before you touch the data
 
-For each statement, decide whether it is something a bacterial genome can establish directly, support probabilistically, or cannot establish by itself.
+For each statement decide whether a bacterial genome can establish it **directly**, support it **probabilistically**, or **cannot establish it alone**.
 
 | Question | Direct / probabilistic / not by genome alone? |
 |---|---|
-| What species is this? | |
+| What Campylobacter species is this? | |
 | What MLST sequence type is it? | |
-| Was this bacterium transmitted directly from a chicken to this bird? | |
-| Is this genome more similar to poultry-associated than wild-bird-associated populations? | |
+| Which sampled host population does it most resemble? | |
+| Was it directly transmitted from a chicken to a wild bird? | |
 | Does it contain a known resistance determinant? | |
-| Was antibiotic use on this farm responsible for the determinant? | |
+| Did antibiotic use at a particular farm cause that determinant? | |
 
-Keep these answers in mind: the distinction between **relatedness**, **source association**, and **transmission** matters throughout the workshop.
+Keep this distinction in mind throughout the practical.
 
 ---
 
-# Exercise 1 - What is it? MLST with PubMLST
+# Exercise 1 — What is it? MLST with PubMLST
 
 **Time: ~20 min**
 
-Open the *Campylobacter jejuni/coli* PubMLST database and go to the sequence-definition database.
+Open the *Campylobacter jejuni/coli* PubMLST database.
 
-Use **Single sequence** query and upload `mystery_A.fasta`.
+Use the **sequence query** with `data/mystery_genomes/mystery_A.fasta`. Select the *C. jejuni/C. coli* MLST scheme so that the whole assembly is queried against all seven MLST loci.
 
-For a whole genome, choose the *C. jejuni/C. coli* MLST scheme rather than querying an individual locus. BIGSdb can query a multi-contig genome against every locus in a scheme and return the scheme fields when all loci match.
-
-Repeat for genomes B-D.
+Repeat for B–D.
 
 ### Record your results
 
@@ -48,138 +48,155 @@ Repeat for genomes B-D.
 
 ### Questions
 
-1. Which genomes belong to the same clonal complex?
-2. Does sharing a CC mean two isolates are closely related enough to infer recent transmission?
-3. What does an unassigned CC tell you? What does it **not** tell you?
-4. Which of the four would you predict to be easiest to place ecologically from MLST alone?
+1. Which result gives you a portable nomenclature and which gives you actual genomic distance?
+2. Does sharing an ST imply recent transmission?
+3. Would you expect all STs to be equally informative about source?
+4. Which mystery do you predict will be easiest to source-attribute?
 
 ---
 
-# Exercise 2 - What is it related to?
+# Exercise 2 — What is it related to?
 
 **Time: ~25 min**
 
-MLST gives a useful name, but seven loci throw away most of the information in a whole genome.
+## 2A. Use PubMLST as a population database
 
-## 2A. Explore the isolate collection
+For each mystery ST/CC, search the PubMLST isolate collection.
 
-For each ST from Exercise 1, search the PubMLST isolate collection.
+Look at host/source metadata. Rather than treating the returned counts as prevalence estimates, ask a simpler question:
 
-Look at the source/host metadata represented among matching records. Do not just count the first page: ask whether the lineage appears narrow or broadly distributed across reservoirs.
+> Does this lineage look **host restricted**, **host biased**, or **broadly distributed** in the available collection?
 
-Record a qualitative interpretation:
+Record your interpretation:
 
-| Genome | ST/CC | Mainly wild bird? | Poultry represented? | Ruminants represented? | Initial ecological interpretation |
-|---|---|---|---|---|---|
-| A | | | | | |
-| B | | | | | |
-| C | | | | | |
-| D | | | | | |
-
-**Caution:** PubMLST is a collection of submitted isolates, not a random survey of nature. Apparent source frequencies reflect sampling and submission as well as biology.
-
-## 2B. Genome Comparator
-
-Open **Analysis -> Genome Comparator**.
-
-Upload the four mystery genomes (a ZIP containing multiple FASTA files is accepted). Select a high-resolution defined-locus scheme appropriate for *C. jejuni* and submit the job.
-
-When the job finishes, inspect:
-
-- the allele-difference tables;
-- the distance matrix;
-- the NeighborNet/network output.
-
-### Questions
-
-1. Does the grouping agree with MLST?
-2. Are any isolates that share a CC still separated by many allelic differences?
-3. Which genome is the clearest outlier?
-4. Why is a genomic network/tree evidence of **relatedness**, not proof of a transmission direction?
-
-If the job does not finish during the session, use the copy in `data/precomputed/`.
-
----
-
-# Exercise 3 - Where might it have come from? Source attribution
-
-**Time: ~20 min**
-
-Source attribution is a classification problem. A model is trained on genomes with known source labels and estimates which reference source a new genome most resembles.
-
-For this workshop use three broad training groups:
-
-- poultry;
-- ruminant;
-- wild bird.
-
-The live session focuses on interpretation rather than installing a machine-learning environment. Open `data/precomputed/source_predictions.tsv` if it is available. The optional follow-up in `03_source_attribution/` shows how to repeat the analysis with SourceRunner-ML.
-
-Before looking at the model, make your own predictions from the PubMLST/Genome Comparator evidence:
-
-| Genome | Your predicted source | Confidence (low/medium/high) | Why? |
-|---|---|---|---|
-| A | | | |
-| B | | | |
-| C | | | |
-| D | | | |
-
-Then compare with the model output.
-
-### Discussion
-
-1. Which prediction is most convincing?
-2. Which isolate is a **generalist-lineage problem**?
-3. Is the highest probability necessarily the true source?
-4. What happens if the true ecological reservoir is missing from the training data?
-5. What happens when the reference data are geographically unbalanced?
-
-A useful formulation is:
-
-> Source attribution estimates **genomic affinity to sampled source populations**. It is not a direct observation of where an individual bacterium came from.
-
----
-
-# Exercise 4 - What AMR does it carry?
-
-**Time: ~20 min**
-
-Open the supplied AMR results for the mystery genomes if available, then inspect the project-level AMR figure in `assets/project_amr_tree.png` and `assets/project_amr_hosts.png`.
-
-For each genome record known resistance determinants and the predicted drug class affected.
-
-| Genome | Determinant(s) | Drug class | Genotypic prediction | Caveat |
+| Genome | ST / CC | Sources represented | Specialist / generalist impression | Evidence |
 |---|---|---|---|---|
 | A | | | | |
 | B | | | | |
 | C | | | | |
 | D | | | | |
 
-## Ecological context
+**Sampling caveat:** PubMLST is an extraordinary resource, but it is a collection of submitted isolates, not a random survey of nature. Submission intensity, geography, time and study design all matter.
 
-In the Swedish study, resistance was more common in wild birds sampled near farms than in wild birds sampled at a non-agricultural site. `tetO` showed a farm-proximity association, and `gyrA_T86I` was found in livestock and near-farm wild birds but not in the non-agricultural wild-bird group.
+## 2B. Add genome-wide resolution
+
+Open **Analysis → Genome Comparator**.
+
+Upload the four mysteries plus the small public reference panel in `data/reference_genomes/`. A ZIP of FASTA files can be used if convenient.
+
+Choose an appropriate *C. jejuni* defined-locus/core-genome scheme and inspect:
+
+- allele-difference table;
+- distance matrix;
+- NeighborNet/network output.
 
 ### Questions
 
-1. Is an AMR determinant evidence of recent acquisition on a farm?
-2. Could the association instead reflect movement of resistant lineages between ecological compartments?
-3. How would long-read sequencing help distinguish clonal spread from mobile-element spread?
-4. What additional metadata would strengthen the inference?
+1. Does genome-wide grouping agree with seven-locus MLST?
+2. Do genomes from the same broad source form one clean cluster?
+3. Does the generalist mystery sit between or among several ecological groups?
+4. What extra evidence would you need before calling a close pair a transmission event?
+
+If the live analysis is slow, switch to `data/precomputed/`.
 
 ---
 
-# Final synthesis - tell the story, then state the uncertainty
+# Exercise 3 — Where did it come from? Source attribution
 
-For one mystery genome, make a 60-second interpretation using this template:
+**Time: ~25 min**
 
-> **Genome ___ is ST___ / CC___.** At whole-genome resolution it clusters with ___. Its source profile is most compatible with ___, although ___. It carries ___, which is consistent with ___. These data support ___, but they do **not** demonstrate ___.
+The public teaching dataset has five labelled source classes:
 
-## The six take-home messages
+- chicken
+- cattle
+- sheep
+- wild bird
+- environment
 
-1. MLST is an excellent language for naming lineages, but it is not the whole genome.
-2. Whole-genome relatedness increases resolution but does not by itself establish transmission.
-3. Source attribution is probabilistic and only as good as the reference populations.
-4. Generalist lineages are biologically interesting precisely because source attribution can be difficult.
-5. AMR must be interpreted in both lineage and ecological context.
-6. Good metadata are not decoration: they are part of the genomic analysis.
+For a first-pass biological interpretation you may combine cattle + sheep as **ruminant**, but the published machine-learning analysis treated them separately.
 
+## 3A. Predict before you reveal
+
+Use only the evidence you have already seen.
+
+| Genome | Your predicted source | Confidence | Why? |
+|---|---|---|---|
+| A | | low / medium / high | |
+| B | | low / medium / high | |
+| C | | low / medium / high | |
+| D | | low / medium / high | |
+
+Now open `data/generated/source_attribution_reveal.tsv` when instructed.
+
+The published Arning et al. dataset supplies both the **true source label** and the **published model prediction** for each record. The setup script also retains the published **generalist index**: the number of source classes in which the ST occurred.
+
+### Discussion
+
+1. Which specialist was easiest?
+2. Did the generalist mystery produce the least satisfying answer?
+3. Was any published prediction wrong? Is that necessarily an algorithmic failure?
+4. Why are cattle and sheep particularly easy to confuse?
+5. What happens if a real source is absent from the training set?
+6. What happens if geographic sampling is badly unbalanced?
+
+### Resolution matters
+
+The Arning et al. analysis provides a useful progression in discriminatory power:
+
+- conventional iSource/MLST benchmark: ~64%;
+- machine learning on MLST: up to ~71%;
+- XGBoost on 1,343-locus cgMLST: ~85%;
+- best k-merised WGS result: ~78%.
+
+More sequence does not magically solve the problem: biological generalism places a real ceiling on attribution.
+
+> Source attribution asks which **sampled source population** a genome resembles. It does not observe the actual transmission event.
+
+---
+
+# Exercise 4 — Apply the logic to wild-bird AMR
+
+**Time: ~17 min**
+
+Now move from a clean source-classification exercise to a real published wild-bird ecology problem.
+
+Mourkas et al. (2024) analysed 700 *C. jejuni* genomes from 30 wild-bird species in eight countries. The study found that proximity to human habitation was associated with greater lineage diversity and more AMR in wild-bird populations.
+
+The assemblies used in that study are publicly available from Figshare (`10.6084/m9.figshare.23631495`).
+
+## Think like an epidemiologist, not just a resistance caller
+
+For an AMR-positive wild-bird genome, what would each observation support?
+
+| Observation | What it might support | What it does **not** prove |
+|---|---|---|
+| AMR determinant in a livestock-associated/generalist lineage | movement/exposure of a resistant lineage | direct livestock → bird transmission |
+| Same AMR determinant in several unrelated lineages | repeated acquisition or mobile gene-pool sharing | a single clonal outbreak |
+| More AMR in urban-associated bird populations | anthropogenic ecological association | which individual exposure caused it |
+| Closely related resistant genomes in different hosts | recent shared ancestry / connected transmission network | direction of transmission |
+
+### Small-group challenge
+
+You are designing the follow-up analysis. Choose **three** pieces of additional data that would best distinguish:
+
+1. **movement of resistant strains**, from
+2. **movement of resistance genes**, from
+3. **independent selection/exposure**.
+
+Possible ideas include long-read plasmid context, denser temporal sampling, water/sewage sampling, livestock sampling, antimicrobial-use data and ecological movement data.
+
+---
+
+# Final synthesis — a 60-second interpretation
+
+Choose one mystery and complete:
+
+> Genome **__** is *Campylobacter* **__**, ST **__**, CC **__**. In the public reference collection this lineage appears **specialist/generalist**. Genome-wide comparison places it **__**. I would attribute it to **__** with **low/medium/high** confidence because **__**. The strongest limitation is **__**. This supports **__**, but it does not demonstrate **__**.
+
+## Take-home message
+
+A useful genomic epidemiology story separates four things:
+
+**identity → relatedness → ecological association → transmission hypothesis**.
+
+Do not collapse them into one claim.

@@ -1,21 +1,13 @@
-# Reference genomes
+# Public reference panel
 
-This directory is intentionally empty until the exact assemblies and sharing status are confirmed.
+The setup script selects a small, balanced reference panel from the **training portion** of the published Arning et al. dataset so that the mystery records remain conceptually separate from the contextual reference set.
 
-For the **small visual Genome Comparator panel**, use the isolates listed in `../reference_panel_plan.tsv` plus the four mystery genomes. The panel is deliberately compact and biologically illustrative; it is **not** a statistically valid training set for source attribution.
+By default it chooses two relatively source-restricted examples from each of:
 
-Suggested filename convention:
+- chicken
+- cattle
+- sheep
+- wild bird
+- environment
 
-```text
-ref_WB_Cj_2848.fasta
-ref_WB_Cj_2888.fasta
-ref_WB_Cj_2961.fasta
-ref_P_Cj_S174.fasta
-ref_P_Cj_10731.fasta
-ref_P_Cj_S259.fasta
-ref_P_Cj_S175.fasta
-ref_R_Cj_10922.fasta
-ref_R_Cj_10685.fasta
-```
-
-For SourceRunner-ML, use the project's larger source-labelled poultry / ruminant / wild-bird reference dataset and keep all workshop mystery genomes out of training.
+The purpose is visual/contextual teaching with Genome Comparator, **not** to train a statistically adequate source-attribution model.

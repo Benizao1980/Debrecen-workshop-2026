@@ -1,12 +1,20 @@
-# Mystery genome FASTAs
+# Mystery genome assemblies
 
-Place the four workshop assemblies here as:
+These files are intentionally generated/downloaded from public records rather than stored as unpublished project data.
 
-- `mystery_A.fasta` = Cj_2849
-- `mystery_B.fasta` = Cj_10787
-- `mystery_C.fasta` = Cj_10726
-- `mystery_D.fasta` = Cj_10753
+Run:
 
-Use `../../scripts/prepare_mystery_genomes.sh /path/to/assembly/folder` to copy and rename them automatically.
+```bash
+python scripts/prepare_public_dataset.py --download-fastas
+```
 
-**Before committing any FASTA to a public repository, confirm that the isolate is already public or that redistribution is permitted.**
+Expected filenames:
+
+```text
+mystery_A.fasta
+mystery_B.fasta
+mystery_C.fasta
+mystery_D.fasta
+```
+
+If direct PubMLST REST download fails, use `data/generated/mystery_manifest.tsv` to retrieve the public records manually.

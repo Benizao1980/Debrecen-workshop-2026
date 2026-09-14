@@ -1,19 +1,17 @@
 # Reference notes for the instructor
 
-## Dataset
+## Why pin S1 rather than “project 102”?
 
-The project comprises 561 *C. jejuni* genomes spanning conventional chicken, organic chicken, ruminants, wild birds near farms and a larger non-agricultural wild-bird collection.
+PubMLST is a living database. The Arning et al. paper describes a specific 5,799-genome analytical snapshot and provides the exact records in S1 Table. The current live project may contain additional records. The workshop therefore chooses mysteries from the immutable published supplement.
 
-Eight STs were reported in both organic chicken and wild birds: ST11, ST19, ST45, ST704, ST945, ST1033, ST1525 and ST6594. ST19 and ST45 were also shared between ruminants and wild birds near farms.
+## Why use the test set for mysteries?
 
-The study identified very close chicken/wild-bird genome pairs, including pairs separated by fewer than 5 SNPs across farms approximately 62 km apart. Use this as a prompt to discuss how striking genomic relatedness can support ecological connectivity while still requiring epidemiological caution.
+The paper split data by ST: all genomes belonging to one ST were placed entirely in training or testing. Selecting mystery records from the published test set preserves the logic of evaluating attribution on lineages that were not split across train/test.
 
-## AMR
+## Why deliberately choose a misclassified generalist for D?
 
-When common intrinsic/near-ubiquitous markers were excluded, selected resistance determinants were found in 25.0% of conventional chicken isolates, 15.1% of organic chicken isolates, 40.0% of ruminant isolates, 18.4% of wild birds near farms and 10.9% of non-agricultural wild birds.
+A wrong prediction is pedagogically more useful when it exposes genuine biological overlap. It makes clear that source attribution is not a magical provenance detector and that host transition erodes source-specific genomic signal.
 
-The farm-proximity signal is the central teaching message, not a claim that all near-farm isolates acquired resistance from poultry.
+## Why not train a model live?
 
-## PubMLST current context
-
-As of September 2026, the *C. jejuni/coli* PubMLST page reports more than 158,000 isolate records and more than 107,000 genomes. This makes it powerful for contextualisation but also makes sampling bias and metadata completeness important discussion points.
+Two hours is better spent on biological reasoning. Environment management, model packages and data preprocessing can easily consume the entire session. The published aiSource repository remains a useful optional follow-up.
