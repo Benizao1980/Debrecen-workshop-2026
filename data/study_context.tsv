@@ -1,0 +1,6 @@
+group	n_genomes	AMR_any_selected_percent	note
+conventional_chicken	68	25.0	Poultry source group
+organic_chicken	126	15.1	Farm source group
+ruminant	15	40.0	Small source group; interpret percentage with sample size in mind
+wild_bird_near_farm	87	18.4	Synanthropic/near-farm group
+wild_bird_non_agricultural	265	10.9	Ottenby comparison group

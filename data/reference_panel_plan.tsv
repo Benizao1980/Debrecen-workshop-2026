@@ -1,0 +1,10 @@
+reference_id	source_group	host	ST	CC	hBAPS	site	panel_role
+Cj_2848	wild_bird	Songthrush	1311	1347	13	Ottenby	Wild-bird lineage close to mystery A at CC level
+Cj_2888	wild_bird	Dunlin	1352	1287	9	Ottenby	Second non-agricultural wild-bird lineage
+Cj_2961	wild_bird	Seagull	1003	45	10	Ottenby	Wild-bird member of a generalist CC45 background
+Cj_S174	poultry	chicken	45	45	10	organic poultry	Poultry CC45 reference; contrasts with mystery B
+Cj_10731	poultry	chicken	1525	Unassigned	12	farm 5	Same ST as mystery D; tests whether seven-locus identity predicts genome-wide closeness
+Cj_S259	poultry	chicken	19	21	15	conventional poultry	Poultry CC21/ST19 reference; overlaps ruminant lineage labels
+Cj_S175	poultry	chicken	257	257	1	farm 4	Poultry lineage outside CC21/CC45
+Cj_10922	ruminant	cattle	19	21	15	farm 6	Ruminant ST19/CC21 reference; source overlap with poultry
+Cj_10685	ruminant	sheep	1701	45	10	farm 3	Ruminant CC45 reference; demonstrates a cross-source generalist complex

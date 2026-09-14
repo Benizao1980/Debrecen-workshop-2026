@@ -1,0 +1,5 @@
+mystery_id	isolate_id	host	context	farm_or_site	ST	CC	hBAPS	teaching_role
+A	Cj_2849	Songthrush (Turdus philomelos)	wild bird, non-agricultural	Ottenby	1347	1347	13	Contrasting wild-bird lineage away from farms
+B	Cj_10787	Crow (Corvidae)	wild bird near farm	farm 2	45	45	10	Classic generalist CC45; source attribution should be treated cautiously
+C	Cj_10726	Crow (Corvidae)	wild bird near farm	farm 6	686	682	8	Contrasting near-farm lineage outside CC45
+D	Cj_10753	Barn swallow (Hirundo rustica)	wild bird near farm	farm 5	1525	Unassigned	12	ST shared between organic chicken and wild-bird groups; CC unassigned
