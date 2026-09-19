@@ -1,0 +1,18 @@
+role	pubmlst_id	isolate	country	year	source	comments	ST	clonal_complex	note
+focal_specialist	46556	P3-2209	Japan	2010	wild bird	Pigeon (Unknown dove)	2209	ST-179 complex	Focal bird-associated lineage shown on slides 23-24
+focal_generalist	46122	KAI44/12	Finland	2012	goose	Goose (Unknown goose)	45	ST-45 complex	Focal generalist lineage shown on slides 25-26
+panel	2607	H143040420	UK [England]	2014	starling	Starling (Sturnus vulgaris)	441		Visible in slide-deck result table
+panel	33935	Uoh_CB292	Finland	2014	wild bird	Western Jackdaw (Corvus monedula)	7807		Visible in slide-deck result table
+panel	33941	Uoh_CB303	Finland	2014	wild bird	Western Jackdaw (Corvus monedula)	7812		Visible in slide-deck result table
+panel	33967	Uoh_CB356	Finland	2014	wild bird	Western Jackdaw (Corvus monedula)	7838		Visible in slide-deck result table
+panel	42535	W0010	UK [Scotland]	2015	wild bird	Blackbird (Turdus merula); iCaMPS3	6550		Visible in slide-deck result table
+panel	42536	W0011	UK [Scotland]	2015	wild bird	Blackbird (Turdus merula); iCaMPS3	1080		Visible in slide-deck result table
+panel	42537	W0012	UK [Scotland]	2015	wild bird	Blackbird (Turdus merula); iCaMPS3	7874		Visible in slide-deck result table
+panel	42542	W0019	UK [Scotland]	2015	wild bird	Robin (Erithacus rubecula); iCaMPS3	45	ST-45 complex	Visible in slide-deck result table
+panel	45946	BCW_3784	USA	2014	wild bird	American crow (Corvus brachyrhynchos)	9267		Visible in slide-deck result table
+panel	45953	BCW_3785	USA	2014	wild bird	American crow (Corvus brachyrhynchos)	9268		Visible in slide-deck result table
+panel	45954	BCW_3788	USA	2014	wild bird	American crow (Corvus brachyrhynchos)	9269		Visible in slide-deck result table
+panel	45965	BCW_3789	USA	2014	wild bird	American crow (Corvus brachyrhynchos)	9269		Visible in slide-deck result table
+panel	45967	BCW_3791	USA	2014	wild bird	American crow (Corvus brachyrhynchos)	4569	ST-952 complex	Visible in slide-deck result table
+panel	46118	24/h/11	Finland	2011	goose		45	ST-45 complex	Visible in slide-deck result table
+panel	46119	38/h/11	Finland	2011	goose		45	ST-45 complex	Visible in slide-deck result table

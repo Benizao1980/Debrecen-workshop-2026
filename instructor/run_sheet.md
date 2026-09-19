@@ -1,128 +1,162 @@
-# Instructor run sheet — 120 minutes
+# Instructor run sheet — 2 hours
 
-## Before people arrive
+This run sheet follows the supplied **36-slide `pubMLST_intro_WB` deck** rather than the earlier mystery-genome package.
 
-1. Run `python scripts/prepare_public_dataset.py --download-fastas` on a reliable connection.
-2. Check A–D in PubMLST manually once.
-3. Run Genome Comparator once and save a screenshot/export in `data/precomputed/`.
-4. Keep `answers/mystery_key.tsv` closed.
-5. Put the repository/ZIP link and a QR code (optional) on the first slide.
-6. Do not depend on installing aiSource/SourceRunner live.
+## Before participants arrive
 
----
-
-## 0–10 min — Frame the inference problem
-
-Opening question:
-
-> “We have a Campylobacter genome. How far can sequence alone take us toward saying where it came from?”
-
-Explain that A–D are **public source-labelled isolates**, but source labels are hidden.
-
-Get the room to classify the six statements in Exercise 0 as direct/probabilistic/not-by-genome-alone.
-
-Key message: relatedness, source association and transmission are different claims.
+- Confirm everyone can reach PubMLST.
+- Ask participants to register/log in before the practical if possible.
+- Have the publication filter text ready to paste:
+  `Mourkas et al. 2024 Curr Biol 34:3955–3965.e4`
+- Keep `participants/genome_comparator_panel.txt` open for copy/paste.
+- Keep focal isolate IDs **46556** and **46122** visible.
+- If Wi-Fi is poor, teach from screenshots in the slides and use the answer key rather than waiting for live jobs.
 
 ---
 
-## 10–25 min — PubMLST in one picture
+## 0–10 min — Frame the biological question
 
-Keep the conceptual ladder simple:
+**Slides 1–4**
 
-**sequence → allele → 7-locus profile → ST → CC → cg/wgMLST**
+Opening prompt:
 
-Show the difference between:
+> “We cultured *C. jejuni* from a wild bird. Does that make it a wild-bird strain?”
 
-- definitions/nomenclature; and
-- isolate/genome + metadata collection.
+Use the specialist/generalist figure on slide 4 to establish the core biological distinction before touching the database.
 
-Live-demo mystery A only.
-
----
-
-## 25–45 min — Exercise 1
-
-Participants type A–D.
-
-At ~40 min reveal only ST/CC (copy from `data/generated/pubmlst_typing.tsv`), not source labels.
-
-Ask: “Which ST looks most likely to be source-specific?”
+Key message: host-associated population structure can be strong, but generalist lineages move/share gene pools across host categories.
 
 ---
 
-## 45–70 min — Exercise 2
+## 10–25 min — PubMLST orientation
 
-Participants query their STs/CCs in the isolate database and label each lineage “specialist-looking / generalist-looking / unclear”.
+**Slides 5–11**
 
-Then run Genome Comparator on A–D + the public reference panel.
+Cover:
+- isolate/provenance data vs genome data;
+- MLST/cgMLST and allele calls;
+- analysis tools;
+- registration/log-in;
+- selecting the *Campylobacter jejuni/coli* database;
+- enabling filters;
+- selecting the Mourkas 2024 publication.
 
-Key sentence:
-
-> “MLST gives the lineage a portable name. Genome-wide comparison tells us how much diversity that name is hiding.”
-
-If the server is slow, switch immediately to the precomputed output.
-
----
-
-## 70–95 min — Exercise 3: source attribution
-
-Force a prediction before the reveal.
-
-Ask participants to give:
-
-1. source;
-2. confidence;
-3. one piece of supporting evidence;
-4. one thing that could make them wrong.
-
-Then open `data/generated/source_attribution_reveal.tsv`.
-
-Spend the most time on mystery D.
-
-Useful published numbers:
-
-- dataset: chicken 4,147; cattle 716; sheep 584; wild bird 212; environment 140;
-- best cgMLST/XGBoost result ~85%;
-- wild-bird test accuracy reported ~84% despite smaller n;
-- increasing generalist index reduced accuracy;
-- cattle/sheep were the most frequent confusion.
-
-Make the conceptual point that **a confidently generalist lineage may be correctly hard to assign**.
+Do not spend long explaining every BIGSdb tool. The practical is more useful if they reach the actual dataset quickly.
 
 ---
 
-## 95–112 min — Exercise 4: wild-bird AMR
+## 25–45 min — Explore the 700-genome collection
 
-Transition:
+**Slides 12–20**
 
-> “So far source labels were clean experimental classes. Wild-bird ecology is messier — and more interesting.”
+Participants:
+1. confirm 700 genomes;
+2. inspect country/continent/source/ST/CC dashboard tiles;
+3. run country × continent two-field breakdown;
+4. run source × comments breakdown;
+5. add `comments` to the results display.
 
-Introduce the published 2024 Current Biology dataset:
-
-- 700 C. jejuni genomes;
-- 30 bird species;
-- eight countries;
-- public assemblies on Figshare;
-- proximity to human habitation associated with increased lineage diversity and AMR.
-
-Do the strain-movement vs gene-movement vs independent-selection challenge.
-
-Expected strong suggestions:
-
-- long-read/plasmid context;
-- dense local livestock + bird + water/sewage sampling;
-- temporal sampling;
-- antimicrobial-use/exposure data;
-- movement ecology.
+Discussion:
+- “wild bird” is a coarse source label;
+- the `comments` field recovers bird species/genus detail;
+- database counts are collection composition, not prevalence estimates.
 
 ---
 
-## 112–120 min — Final reveal and synthesis
+## 45–70 min — MLST and the specialist/generalist contrast
 
-Reveal exact PubMLST IDs and metadata from `answers/mystery_key.tsv`.
+**Slides 21–28**
 
-Ask one group for a 60-second interpretation using the template in `workshop.md`.
+### Example 1 — PubMLST 46556
+Expected:
+- isolate P3-2209
+- Japan, 2010
+- *C. jejuni*
+- wild bird; pigeon/unknown dove
+- ST2209
+- ST-179 complex
+
+Ask participants to inspect similar isolates/classification groups.
+
+Prompt:
+> “How much host signal is carried by this lineage?”
+
+### Example 2 — PubMLST 46122
+Expected:
+- KAI44/12
+- Finland, 2012
+- goose
+- *C. jejuni*
+- ST45
+- ST-45 complex
+
+The wider CC45 population contains multiple host/source categories. The slide demo shows a 250-isolate CC45 population dominated by ST45 but spanning human and chicken as well as other sources.
+
+Prompt:
+> “What does ‘source’ even mean for a lineage that is genuinely generalist?”
+
+Key message:
+> Difficulty attributing CC45 is not necessarily a model failure. It can be the correct expression of weak source specificity.
+
+---
+
+## 70–100 min — Genome Comparator
+
+**Slides 29–32**
+
+Use the panel in `participants/genome_comparator_panel.txt`.
+
+Core run:
+- C. jejuni / C. coli cgMLST v2
+- no alignment initially
+- retain demo defaults for incomplete loci
+- exclude paralogous loci
+
+While job runs, explain output:
+- rows = loci;
+- columns = genomes;
+- allele numbers = gene-by-gene variation;
+- X = missing;
+- I = incomplete.
+
+Questions:
+- Do same-ST isolates remain identical genome-wide?
+- How much within-CC45 diversity is hidden by seven-locus MLST?
+- What would you need beyond cgMLST to infer a recent transmission event?
+
+Optional: produce an alignment after the fast comparison if time/network allow.
+
+---
+
+## 100–112 min — Microreact visualisation
+
+**Slides 33–35**
+
+Demonstrate export to Microreact:
+- choose a typing scheme;
+- include country;
+- sequences + FastTree (approximate ML) as shown in the deck.
+
+Use this to separate three dimensions:
+- phylogenetic relatedness;
+- geography;
+- host/source metadata.
+
+Emphasise that none of these axes should be treated as interchangeable.
+
+---
+
+## 112–120 min — AMR/ecology and synthesis
+
+**Slide 36 + return briefly to slides 3–4**
+
+Ask:
+- If a resistant CC45 isolate is found in a city-associated wild bird, what can the genome support?
+- What would distinguish movement of a resistant strain from movement of a resistance determinant?
+- What would be required to claim a direction of transmission?
 
 Finish with:
 
-> “Genomes make hypotheses much sharper. They do not remove the need for ecology, metadata and sampling design.”
+**identity → relatedness → ecological association → transmission hypothesis**
+
+and remind participants not to collapse these into one conclusion.

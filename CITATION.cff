@@ -1,19 +1,11 @@
 cff-version: 1.2.0
-title: "Wild-bird Campylobacter workshop: public-data edition"
-message: "Please cite the underlying published datasets when reusing these teaching materials."
+title: "Debrecen 2026 PubMLST wild-bird Campylobacter practical"
+message: "Please cite the underlying published study when reusing these teaching materials."
 type: software
 authors:
   - family-names: Pascoe
     given-names: Ben
 references:
-  - type: article
-    title: "Machine learning to predict the source of campylobacteriosis using whole genome data"
-    authors:
-      - family-names: Arning
-        given-names: Nicolas
-      - family-names: Sheppard
-        given-names: Samuel K.
-    doi: 10.1371/journal.pgen.1009436
   - type: article
     title: "Proximity to humans is associated with antimicrobial-resistant enteric pathogens in wild bird microbiomes"
     authors:

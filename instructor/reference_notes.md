@@ -1,17 +1,26 @@
 # Reference notes for the instructor
 
-## Why pin S1 rather than “project 102”?
+## Why use one published dataset throughout?
 
-PubMLST is a living database. The Arning et al. paper describes a specific 5,799-genome analytical snapshot and provides the exact records in S1 Table. The current live project may contain additional records. The workshop therefore chooses mysteries from the immutable published supplement.
+The delivered session is easier to follow when participants stay inside the Mourkas et al. (2024) 700-genome wild-bird collection rather than switching from a separate source-attribution dataset into a wild-bird AMR case study.
 
-## Why use the test set for mysteries?
+The same records support metadata exploration, MLST/CC interpretation, specialist/generalist comparison, cgMLST/Genome Comparator work and the final AMR/ecology discussion.
 
-The paper split data by ST: all genomes belonging to one ST were placed entirely in training or testing. Selecting mystery records from the published test set preserves the logic of evaluating attribution on lineages that were not split across train/test.
+## Why use 46556 / P3-2209?
 
-## Why deliberately choose a misclassified generalist for D?
+The slide deck uses this Japanese pigeon isolate (ST2209, ST-179 complex) as a clear bird-associated lineage. Closely related/ST-matched records shown in the deck are repeatedly bird/pigeon associated, making it useful for discussing strong host structure without claiming a specific transmission event.
 
-A wrong prediction is pedagogically more useful when it exposes genuine biological overlap. It makes clear that source attribution is not a magical provenance detector and that host transition erodes source-specific genomic signal.
+## Why use 46122 / KAI44/12?
 
-## Why not train a model live?
+This Finnish goose isolate is ST45 / ST-45 complex. The wider CC45 population shown in the deck spans multiple source categories, including human and chicken. It is therefore a useful contrast: sampling host is known, but the lineage itself is a broad ecological generalist.
 
-Two hours is better spent on biological reasoning. Environment management, model packages and data preprocessing can easily consume the entire session. The published aiSource repository remains a useful optional follow-up.
+## Why not run a formal attribution model live?
+
+The core teaching objective is to separate:
+
+- sample host;
+- population association;
+- genomic relatedness;
+- transmission inference.
+
+A supervised attribution model would add installation, training-set and validation issues that are not necessary for the 2-hour PubMLST practical. The specialist/generalist contrast conveys the biological limit directly.

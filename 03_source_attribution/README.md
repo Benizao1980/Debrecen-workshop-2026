@@ -1,49 +1,42 @@
-# 03 — Source attribution: specialists, generalists and uncertainty
+# 03 — Ecological/source inference: specialists, generalists and uncertainty
 
-## Published teaching dataset
+This folder keeps its historical name so existing workshop links do not break, but the live practical **does not run a formal source-attribution model**.
 
-Arning et al. (2021) used 5,799 public Campylobacter genomes from chicken, cattle, sheep, wild birds and the environment.
+## Teaching aim
 
-The dataset was split by **sequence type**, not by independently randomising individual genomes: all members of one ST were assigned wholly to training or testing. This reduces the risk of testing on near-duplicates of the same ST used for training.
+Use PubMLST population context to distinguish three different claims:
 
-## Why the mystery design works
+1. **sampling host** — where this isolate was obtained;
+2. **population/ecological association** — the host/source distribution of related lineages;
+3. **direct transmission** — an epidemiological event that cannot be inferred from genomic similarity alone.
 
-A–C are selected to be relatively source restricted; D is deliberately a generalist and preferably one that the published model misclassified.
+## Specialist example
 
-The published paper defined the **generalist index** as the number of source classes in which an ST occurred. Attribution accuracy declined as this index increased.
+PubMLST **46556 / P3-2209 / ST2209 / CC179** is used as the bird-associated contrast.
 
-The paper reported that 58% of wild-bird isolates belonged to STs found only in the wild-bird niche, helping explain why wild-bird attribution performed well despite the smaller sample size.
+A reasonable conclusion is:
 
-## Resolution comparison
+> The available population context supports a bird-associated lineage.
 
-Published top-line performance:
+An overclaim is:
 
-| Input/method | Approximate accuracy |
-|---|---:|
-| standard iSource benchmark | 64% |
-| ML on MLST | 71% |
-| XGBoost on cgMLST | 85% |
-| k-merised WGS | 78% |
+> This isolate was transmitted directly from another pigeon.
 
-The point is **not** that 85% is universally expected. The point is that adding genomic resolution helps, but biological host switching/generalism remains a real limit.
+## Generalist example
 
-## Live exercise
+PubMLST **46122 / KAI44/12 / ST45 / CC45** is used as the generalist contrast.
 
-Participants should make a source prediction and confidence rating **before** opening:
+A reasonable conclusion is:
 
-`data/generated/source_attribution_reveal.tsv`
+> The sample came from a goose, but CC45 occurs across multiple source populations, so source-specific signal is intrinsically weaker.
 
-Then discuss:
+## Biological limit
 
-- true source;
-- published predicted source;
-- generalist index;
-- whether an error is understandable from lineage ecology.
+Host switching and shared gene pools can make a lineage genuinely ambiguous. More genomic resolution helps with relatedness, but it does not automatically make ecological source labels clean or establish transmission direction.
 
-## Optional reproducible extension
+## Discussion prompts
 
-The published aiSource repository is available at:
-
-`https://github.com/narning1992/aiSource`
-
-Treat this as an after-workshop exercise rather than trying to install an older machine-learning environment during the 2-hour session.
+- If a wild-bird CC45 genome clusters near chicken or human isolates, what can you conclude?
+- What can you not conclude without temporally/geographically matched sampling?
+- How would an absent source class bias any formal attribution model?
+- Why are uneven sampling and inconsistent host metadata important?
