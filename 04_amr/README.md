@@ -1,6 +1,6 @@
-# 04 — Public wild-bird AMR case study
+# 04 — Wild-bird AMR ecology
 
-## Published case study
+## Core published study
 
 Mourkas E et al. (2024), *Current Biology*:
 
@@ -10,24 +10,24 @@ DOI: `10.1016/j.cub.2024.07.059`
 
 Public assemblies: `https://doi.org/10.6084/m9.figshare.23631495`
 
-The study analysed 700 *C. jejuni* genomes from 30 bird species in eight countries. Proximity to human habitation was associated with increased lineage diversity and AMR; urban-associated wild birds carried up to roughly three-fold more Campylobacter genotypes and AMR genes in the final published analysis.
+The same **700-genome** collection used throughout the PubMLST practical comes from this study.
 
-## Teaching shift
+## Teaching aim
 
-Do **not** turn this into a list of resistance genes. Instead ask what genomic/ecological pattern would distinguish:
+Do not reduce the end of the session to a list of resistance genes. Ask what combinations of phylogeny, AMR context and ecology would distinguish:
 
-1. clonal movement of a resistant lineage;
+1. movement of a resistant bacterial lineage;
 2. horizontal movement of an AMR determinant;
 3. repeated independent selection/exposure.
 
 ## Questions
 
-- Is the same determinant present in multiple unrelated lineages?
-- Is it concentrated in generalist/livestock-associated lineages?
+- Is the same AMR determinant present in multiple unrelated lineages?
+- Is AMR concentrated in generalist or anthropogenically associated lineages?
 - Does ecological proximity predict lineage diversity, AMR, or both?
-- What does long-read sequencing add?
-- What environmental samples would most directly test the hypothesis?
+- What would long-read/mobile-element context add?
+- Which matched human, livestock, sewage, water or environmental samples would most directly test a transmission hypothesis?
 
-## Optional participant extension
+## Final interpretation rule
 
-Download a small subset of public assemblies from Figshare after the workshop and repeat the PubMLST/Genome Comparator workflow on wild-bird genomes spanning contrasting ecological contexts.
+A resistant wild-bird isolate can support a hypothesis about ecological connectivity. It does not, by itself, prove the direction or exact route by which the lineage or resistance determinant moved.

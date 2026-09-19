@@ -1,36 +1,42 @@
 # Bonus — reproduce and extend the analysis
 
-## 1. Recreate the public teaching set
+## 1. Reproduce the live PubMLST collection
 
-```bash
-python scripts/prepare_public_dataset.py --download-fastas
-```
+Open the *Campylobacter jejuni/coli* isolate/genome collection and filter **Publication** to:
 
-The selection rules are encoded in the script, not hidden in manual choices.
+`Mourkas et al. 2024 Curr Biol 34:3955–3965.e4`
 
-## 2. Inspect the original aiSource implementation
+The practical expects **700 genomes**.
 
-Published repository:
+## 2. Re-run the focal examples
 
-`https://github.com/narning1992/aiSource`
+Inspect:
 
-The repository contains an XGBoost cgMLST model and example data. Its original environment used older Python/XGBoost/scikit-learn versions, so it is intentionally an **after-workshop** exercise.
+- PubMLST **46556 / P3-2209 / ST2209 / ST-179 complex**;
+- PubMLST **46122 / KAI44/12 / ST45 / ST-45 complex**.
 
-## 3. Compare source definitions
+Compare the host/source distribution of related records before moving to cgMLST.
 
-Repeat attribution under alternative class definitions:
+## 3. Re-run Genome Comparator
 
-- five classes: chicken / cattle / sheep / wild bird / environment;
-- four classes: chicken / ruminant / wild bird / environment;
-- three classes: poultry / ruminant / wild bird.
+Paste the IDs in `participants/genome_comparator_panel.txt` and use **C. jejuni / C. coli cgMLST v2**.
 
-Ask what is gained and lost by collapsing biologically overlapping reservoirs.
+Compare:
 
-## 4. Local vs global reference populations
+- MLST identity;
+- cgMLST allelic distance;
+- missing/incomplete loci;
+- metadata concordance.
 
-A strong extension is to compare:
+## 4. Extend the wild-bird AMR analysis
 
-- a geographically broad/global training set; and
-- a geographically closer/local training set.
+Public contiguous assemblies from the Mourkas et al. study are available at:
 
-Evaluate prediction stability, probability calibration and performance under lineage-aware cross-validation.
+`https://doi.org/10.6084/m9.figshare.23631495`
+
+Useful extensions include:
+
+- contrasting human-proximal vs remote bird populations;
+- testing whether AMR determinants occur in one lineage or across unrelated lineages;
+- adding mobile-element/long-read context;
+- comparing matched human, livestock, sewage, water and environmental samples.

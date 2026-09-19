@@ -1,37 +1,43 @@
-# 02 — Population structure and Genome Comparator
+# 02 — Population structure: specialist, generalist and Genome Comparator
 
 ## Teaching aim
 
-Move participants from **lineage nomenclature** to **genome-wide relatedness**.
+Move from lineage nomenclature to genome-wide population context using the two focal records from the delivered slides.
 
-### Part A — metadata context
+## Focal example A — bird-associated lineage
 
-For each mystery ST/CC, query the PubMLST isolate collection and decide whether the lineage appears:
+**PubMLST 46556 / P3-2209 / Japan 2010 / pigeon / ST2209 / ST-179 complex**
 
-- host restricted;
-- host biased; or
-- broadly distributed/generalist.
+Inspect the record and its similar/classification-scheme context. The related examples shown in the deck include multiple Japanese pigeon/wild-bird records with ST2209/CC179.
 
-Do not interpret PubMLST source counts as unbiased prevalence estimates.
+Teaching point: strong host structure can make an ecological association relatively clear, but it still does **not** establish an individual transmission route.
 
-### Part B — Genome Comparator
+## Focal example B — generalist lineage
 
-Compare A–D with the small public reference panel selected by `scripts/prepare_public_dataset.py`.
+**PubMLST 46122 / KAI44/12 / Finland 2012 / goose / ST45 / ST-45 complex**
+
+Inspect the wider CC45 context. In the deck, the displayed CC45 population includes multiple source categories, including human and chicken isolates.
+
+Teaching point: a sample can come from a goose while belonging to a broad ecological generalist population.
+
+## Genome Comparator
+
+Use **Analysis → Genome Comparator** and paste the IDs from:
+
+`participants/genome_comparator_panel.txt`
+
+Select **C. jejuni / C. coli cgMLST v2**.
 
 Inspect:
 
-- allele-difference output;
-- pairwise distance matrix;
-- NeighborNet/network.
+- allele designations across loci;
+- missing/incomplete calls;
+- pairwise allelic distance;
+- whether same-ST isolates are genuinely close genome-wide.
 
-## Questions to emphasise
+## Questions
 
-- Can two isolates share an ST yet be quite different genome-wide?
-- Can one CC occur in several source populations?
-- Does a close genomic pair tell you the direction of transmission?
-- What epidemiological metadata would change your interpretation?
-
-## Useful resource
-
-BIGSdb Genome Comparator documentation:
-`https://bigsdb.readthedocs.io/en/latest/data_analysis/genome_comparator.html`
+- Can two isolates share an ST yet differ substantially genome-wide?
+- Can one clonal complex occur across several host/source populations?
+- Does a small allelic distance establish direction of transmission?
+- What temporal, spatial and epidemiological evidence would change your interpretation?

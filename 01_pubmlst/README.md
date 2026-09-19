@@ -1,13 +1,26 @@
-# 01 — PubMLST and seven-locus MLST
+# 01 — PubMLST: find the study, inspect metadata, understand MLST
 
 ## Teaching aim
 
-Introduce PubMLST as both:
+Introduce PubMLST as both a curated nomenclature system and a genome/isolate collection with provenance metadata.
 
-1. a curated nomenclature system; and
-2. a genome/isolate collection with provenance metadata.
+The live exercise follows the delivered slide deck rather than uploading mystery FASTA files.
 
-The live exercise uses a **whole-genome FASTA** to obtain the seven-locus *C. jejuni/C. coli* MLST profile, ST and clonal complex.
+## Workflow
+
+1. Log in to PubMLST.
+2. Open the *Campylobacter jejuni/coli* database.
+3. Open the isolate/genome collection.
+4. Use **Modify form** to enable **Filters**.
+5. Filter **Publication** to:
+
+   `Mourkas et al. 2024 Curr Biol 34:3955–3965.e4`
+
+6. Confirm the dashboard contains **700 genomes**.
+7. Use **Breakdown → Two Field** to explore:
+   - `country` × `continent`;
+   - `source` × `comments`.
+8. Customise the result table to display `comments`, which contains the more specific bird annotation used in this collection.
 
 ## Conceptual ladder
 
@@ -16,26 +29,16 @@ sequence at locus → allele number
 7 allele numbers → allelic profile
 allelic profile → sequence type (ST)
 related STs → clonal complex (CC)
-whole genome → cg/wgMLST and higher-resolution comparison
+whole genome → cgMLST / gene-by-gene comparison
 ```
 
-## Demonstration
+The seven classical MLST loci are:
 
-Use mystery A only for the instructor demo. Let participants type B–D themselves.
+`aspA, glnA, gltA, glyA, pgm, tkt, uncA`
 
-Record:
+## Key questions
 
-- species;
-- seven alleles;
-- ST;
-- CC;
-- any incomplete/novel calls.
-
-## Key question
-
-> How much ecology can seven loci encode, and what information are we throwing away from the rest of the genome?
-
-## Useful resources
-
-- Campylobacter PubMLST: `https://pubmlst.org/organisms/campylobacter-jejunicoli`
-- BIGSdb sequence-query documentation: `https://bigsdb.readthedocs.io/en/latest/data_query/0010_determine_allele_identity.html`
+- What does the dashboard tell us about the **study collection**, and what does it not tell us about prevalence?
+- Why is `wild bird` too coarse for many ecological questions?
+- Why can ST/CC be useful even though they are much lower resolution than cgMLST?
+- Does sharing an ST establish recent transmission? **No.**
